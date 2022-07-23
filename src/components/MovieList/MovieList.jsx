@@ -20,6 +20,7 @@ function MovieList() {
     const handleSelect = () => {
         //log to show button is registered 
         console.log('Select Btn clicked');
+        
         //change current view to detail page upon click
         history.push('/details')
     }
