@@ -17,22 +17,9 @@ router.get('/', (req, res) => {
 
 });
 
-//route to get all of selected movie information
-router.get('/details/:id', (req,res) => {
-
-  const query = `SELECT * FROM "movies" WHERE " id" = $1;`;
-  pool.query(query, [req.body.id])
-  .then(result => {
-    res.send(result.rows);
-  }).catch(err => {
-    console.log('ERROR in get movie details:', error);
-    res.sendStatus(500)
-  })
-
-});
 
 //instruction for DB to return ALL information from selected movie
-router.get('/add/:id', (req,res) => {
+router.get('/details/:id', (req,res) => {
   const movieId = req.params.id;
   console.log('this movie ID is:', movieId);
 
@@ -42,6 +29,7 @@ router.get('/add/:id', (req,res) => {
   .query(queryText, [movieId])
   .then ( result => {
     res.send(result.rows);
+    console.log('get movie router:', router.rows);
   }).catch(err => {
     console.log('ERROR: Get movie DETAILS:', err);
     res.sendStatus(500)

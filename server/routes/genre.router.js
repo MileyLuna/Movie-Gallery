@@ -4,19 +4,19 @@ const pool = require('../modules/pool')
 
 
 //instruction to DB get ALL genres from the genres table
-router.get('/', (req, res) => {
-  // Add query to get all genres
-  const query = `SELECT * FROM genres;`;
-  pool.query(query)
-    .then( result => {
-      res.send(result.rows);
-    })
-    .catch(err => {
-      console.log('ERROR: Get all genres', err);
-      res.sendStatus(500)
-    })
-  res.sendStatus(500)
-});
+// router.get('/', (req, res) => {
+//   // Add query to get all genres
+//   const query = `SELECT * FROM genres;`;
+//   pool.query(query)
+//     .then( result => {
+//       res.send(result.rows);
+//     })
+//     .catch(err => {
+//       console.log('ERROR: Get all genres', err);
+//       res.sendStatus(500)
+//     })
+//   res.sendStatus(500)
+// });
 
 
 //instruction DB to get ALL genres for selected movie
@@ -34,6 +34,7 @@ router.get('/details/:id', (req, res) => {
   .query (queryText, [genresId])
   .then((result) => {
     res.send(result.rows);
+    console.log('get genre router:', router.rows);
   })
   .catch(err => {
       console.log ('error getting,', err);

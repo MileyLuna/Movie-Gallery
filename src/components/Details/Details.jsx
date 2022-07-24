@@ -9,22 +9,20 @@ function Details () {
     const dispatch = useDispatch ();
 
     //transfer over selected movie and genre store to append on DOM
-    const movie = useSelector(store => store.fetchSelectedMovie);
-    const genres = useSelector(store => store.fetchSelectedGenres);
+    const movies = useSelector(store => store.movies);
+    const genres = useSelector(store => store.genres);
     
     // need to load:
         // all genres --> genres table
         // all movie details --> movie table
     useEffect(() => {
         dispatch({ type: 'FETCH_DETAILS '})
-        dispatch({ type: 'FETCH_GENRES'})
-
     })
 
     const handleBack = () => {
         console.log('back Btn clicked');
         //clear page
-        dispatch({ type: 'CLEAR_PAGE'})
+        // dispatch({ type: 'CLEAR_PAGE'})
         //upon click change current view to home page 
         history.push('/');
     }
@@ -37,13 +35,13 @@ function Details () {
 
         <div>
             <div className="image">
-                <img src={movie.poster}/>
+                <img src={movies.poster}/>
             </div>
 
             <div>
-                <h1>{movie.title}</h1>
+                <h1>{movies.title}</h1>
                 <h2>{genres.name}</h2>
-                <h3>{movie.description}</h3>
+                <h3>{movies.description}</h3>
             </div>
         
             <button onClick={handleBack}> Back </button>
@@ -52,10 +50,3 @@ function Details () {
 }
 
 export default Details;
-{/* {movieDetails.map((movie, i) => { 
-    return ( 
-        <div key={i} className="image"> 
-            <img src={movie.poster}/>
-
-        </div>
-        )})} */}
