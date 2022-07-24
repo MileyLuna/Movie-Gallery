@@ -18,7 +18,7 @@ function MovieListItem({ movie }) {
 
         //perform this action to grab selected movie information
         dispatch({ type: 'FETCH_DETAILS', payload: movie.id })
-        console.log();
+        dispatch({ type: 'FETCH_GENRE', payload: movie.id })
         //change current view to detail page upon click
         history.push(`/details/${movie.id}`)
     }

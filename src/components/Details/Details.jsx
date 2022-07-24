@@ -15,9 +15,10 @@ function Details () {
     // need to load:
         // all genres --> genres table
         // all movie details --> movie table
-    useEffect(() => {
-        dispatch({ type: 'FETCH_DETAILS', payload: movies.id})
-    })
+    // useEffect(() => {
+    //     dispatch({ type: 'FETCH_DETAILS'})
+    //     dispatch({ type: 'FETCH_GENRE'})
+    // })
 
     const handleBack = () => {
         console.log('back Btn clicked');
@@ -27,21 +28,17 @@ function Details () {
         history.push('/');
     }
 
-
-
-
-
     return (
 
         <div>
             <div className="image">
-                <img src={movies.poster}/>
+                <img src={movies[0].poster}/>
             </div>
 
             <div>
-                <h1>{movies.title}</h1>
-                <h2>{genres.name}</h2>
-                <h3>{movies.description}</h3>
+                <h1>{movies[0].title}</h1>
+                <h2>{genres[0].name}</h2>
+                <h3>{movies[0].description}</h3>
             </div>
         
             <button onClick={handleBack}> Back </button>

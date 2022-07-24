@@ -15,7 +15,7 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_DETAILS', fetchSelectedMovie);
-    yield takeEvery('FETCH_DETAILS', fetchSelectedGenres);
+    yield takeEvery('FETCH_GENRE', fetchSelectedGenres);
 }
 
 //!-----------SAGA-----------------------------------------
@@ -34,8 +34,9 @@ function* fetchAllMovies() {
 
 function* fetchSelectedMovie(action) {
     try {
-        console.log('fetchSelectedMovie plays:', action.payload);
-        const selectedMovie = yield axios.get(`/movie/details/${action.payload}`);
+        // console.log('fetchSelectedMovie plays:', action.payload);
+        const selectedMovie = yield axios.get(`/api/movie/details/${action.payload}`);
+        // yield console.log('selected movie is:', selectedMovie.data);
         yield put({ type: 'SET_MOVIES', payload: selectedMovie.data })
     }
     catch (error) {
@@ -46,9 +47,10 @@ function* fetchSelectedMovie(action) {
 
 function* fetchSelectedGenres(action) {
     try {
-        console.log('fetchSelectedGenres plays:', action.payload);
-
-        const selectedGenres = yield axios.get(`/genre/details/${action.payload}`);
+        
+        // console.log('fetchSelectedGenres plays:', action.payload);
+        const selectedGenres = yield axios.get(`/api/genre/details/${action.payload}`);
+        // yield console.log('selected genre is:', selectedGenres.data);
         yield put({ type: 'SET_GENRES', payload: selectedGenres.data });
 
     }
