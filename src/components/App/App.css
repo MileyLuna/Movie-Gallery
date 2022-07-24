@@ -22,3 +22,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.banner{
+  background-image: radial-gradient(rgb(255, 255, 74), rgb(188, 248, 84),pink);    height: 100px;
+}
+
+.bannerName{
+  text-align: center;
+  padding-top: 30px;
+
+}

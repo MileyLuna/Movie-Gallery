@@ -16,7 +16,7 @@ function Details () {
         // all genres --> genres table
         // all movie details --> movie table
     useEffect(() => {
-        dispatch({ type: 'FETCH_DETAILS '})
+        dispatch({ type: 'FETCH_DETAILS', payload: movies.id})
     })
 
     const handleBack = () => {

@@ -24,9 +24,9 @@ function MovieListItem({ movie }) {
     }
 
     return (
-        <div key={movie.id} >
+        <div key={movie.id} onClick={handleSelect} >
             <h3>{movie.title}</h3>
-            <img src={movie.poster} alt={movie.title} onClick={handleSelect}/>
+            <img src={movie.poster} alt={movie.title}/>
         </div>
     )
 }

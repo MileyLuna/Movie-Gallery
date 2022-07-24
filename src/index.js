@@ -29,16 +29,14 @@ function* fetchAllMovies() {
     } catch (error) {
         console.log('ERROR in fetchAllMovies:', error);
     }
-        
+
 }
 
-function* fetchSelectedMovie (action) {
+function* fetchSelectedMovie(action) {
     try {
         console.log('fetchSelectedMovie plays:', action.payload);
-
         const selectedMovie = yield axios.get(`/movie/details/${action.payload}`);
-        
-        yield put({type: 'SET_MOVIES', payload: selectedMovie.data})
+        yield put({ type: 'SET_MOVIES', payload: selectedMovie.data })
     }
     catch (error) {
         console.log(' ERROR in fetchSelectedMovie:', error);
@@ -46,12 +44,12 @@ function* fetchSelectedMovie (action) {
     }
 }
 
-function* fetchSelectedGenres (action) {
+function* fetchSelectedGenres(action) {
     try {
         console.log('fetchSelectedGenres plays:', action.payload);
 
-        const selectedGenres = yield axios.get (`/genre/details/${action.payload}`);
-        yield put({type: 'SET_GENRES', payload: selectedGenres.data});
+        const selectedGenres = yield axios.get(`/genre/details/${action.payload}`);
+        yield put({ type: 'SET_GENRES', payload: selectedGenres.data });
 
     }
     catch (error) {
@@ -110,7 +108,7 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={storeInstance}>
-        <App />
+            <App />
         </Provider>
     </React.StrictMode>,
     document.getElementById('root')

@@ -22,9 +22,9 @@ function MovieList() {
         <main>
             <h1>MovieList</h1>
             <section className="movies">
-                {movies.map((movie, i) => {
+                {movies.map((movie) => {
                     return (
-                        <MovieListItem key={i} movie={movie}/>
+                        <MovieListItem key={movie.id} movie={movie}/>
                     )
                 })}
             </section>
