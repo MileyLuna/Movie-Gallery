@@ -1,7 +1,8 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-// import { useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
 
 import './Details.css';
 
@@ -9,7 +10,8 @@ import './Details.css';
 function Details () {
     //trigger page change
     const history = useHistory();
-    // const {id} = useParams();
+    const dispatch = useDispatch();
+    const {id} = useParams();
 
     //transfer over selected movie and genre store to append on DOM
     const movies = useSelector(store => store.movies);
@@ -22,10 +24,17 @@ function Details () {
         history.push('/');
     }
 
+    useEffect(() => {
+        dispatch({ type: 'FETCH_DETAILS', payload: movies.id })
+    },[])
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_GENRE', payload: movies.id })
+    },[])
 
     return (
         <div className="container"> 
-                <h2>{movies[0].title}</h2>
+                <h2>{movies[id].title}</h2>
                 <h3>Genre:</h3>
                     {genres.map((genre, i) => {
                         return (
@@ -34,11 +43,11 @@ function Details () {
                     })}
         <div className="detailContainer">
             <div className="image">
-                <img src={movies[0].poster} className="image"/>
+                <img src={movies[id].poster} className="image"/>
             </div>
 
             <div className="description">
-                <h3>{movies[0].description}</h3>
+                <h3>{movies[id].description}</h3>
             </div>
             </div>
         

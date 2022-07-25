@@ -18,8 +18,8 @@ function MovieListItem({ movie }) {
         console.log('Select Btn clicked');
 
         //perform this action to grab selected movie information
-        dispatch({ type: 'FETCH_DETAILS', payload: movie.id })
-        dispatch({ type: 'FETCH_GENRE', payload: movie.id })
+        // dispatch({ type: 'FETCH_DETAILS', payload: movie.id })
+        // dispatch({ type: 'FETCH_GENRE', payload: movie.id })
         //change current view to detail page upon click
         history.push(`/details/${movie.id}`)
     }

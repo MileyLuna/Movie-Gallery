@@ -23,7 +23,7 @@ const pool = require('../modules/pool')
 router.get('/details/:id', (req, res) => {
 
   const genresId = req.params.id;
-  console.log('searchInput', genresId)
+  console.log('genre server is:', genresId)
 
   const queryText = `select "genres"."name" as "name" from "genres"
   join "movies_genres" on "genres"."id" = "movies_genres"."genre_id"
