@@ -34,7 +34,7 @@ router.get('/details/:id', (req, res) => {
   .query (queryText, [genresId])
   .then((result) => {
     res.send(result.rows);
-    console.log('get genre router:', router.rows);
+    console.log('get genre router:', result.rows);
   })
   .catch(err => {
       console.log ('error getting,', err);

@@ -29,7 +29,7 @@ router.get('/details/:id', (req,res) => {
   .query(queryText, [movieId])
   .then ( result => {
     res.send(result.rows);
-    console.log('get movie router:', router.rows);
+    console.log('get movie router:', result.rows);
   }).catch(err => {
     console.log('ERROR: Get movie DETAILS:', err);
     res.sendStatus(500)

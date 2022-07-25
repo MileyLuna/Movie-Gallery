@@ -1,49 +1,45 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import { createGenerateClassName } from "@material-ui/core";
+// import { useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
+
+import './Details.css';
+
 
 function Details () {
     //trigger page change
     const history = useHistory();
-    const dispatch = useDispatch ();
+    // const {id} = useParams();
 
     //transfer over selected movie and genre store to append on DOM
     const movies = useSelector(store => store.movies);
     const genres = useSelector(store => store.genres);
     
-    // need to load:
-        // all genres --> genres table
-        // all movie details --> movie table
-    // useEffect(() => {
-    //     dispatch({ type: 'FETCH_DETAILS'})
-    //     dispatch({ type: 'FETCH_GENRE'})
-    // })
-
     const handleBack = () => {
         console.log('back Btn clicked');
-        //clear page
-        // dispatch({ type: 'CLEAR_PAGE'})
+
         //upon click change current view to home page 
         history.push('/');
     }
 
     return (
-
-        <div>
+        <div className="container"> 
+                <h1>{movies[0].title}</h1>
+                <h3>Genre: {genres[0].name}</h3>
+        <div className="detailContainer">
             <div className="image">
-                <img src={movies[0].poster}/>
+                <img src={movies[0].poster} className="image"/>
             </div>
 
             <div>
-                <h1>{movies[0].title}</h1>
-                <h2>{genres[0].name}</h2>
                 <h3>{movies[0].description}</h3>
             </div>
+            </div>
         
-            <button onClick={handleBack}> Back </button>
+            <button className="backBtn" onClick={handleBack}> Back </button>
         </div>
     )
 }
+
 
 export default Details;

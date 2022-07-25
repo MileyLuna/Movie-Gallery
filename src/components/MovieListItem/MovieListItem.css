@@ -1,0 +1,19 @@
+.image1 {
+    border: 4px solid rgb(238, 203, 203);
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+
+.image1:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.title{
+    padding-top: 40px;
+    padding-left: 90px;
+    padding-right: 55px;
+
+
+
+}

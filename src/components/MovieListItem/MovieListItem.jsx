@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import React from 'react';
+import './MovieListItem.css'
 
 
 
@@ -24,9 +25,11 @@ function MovieListItem({ movie }) {
     }
 
     return (
-        <div key={movie.id} onClick={handleSelect} >
-            <h3>{movie.title}</h3>
-            <img src={movie.poster} alt={movie.title}/>
+        <div key={movie.id} onClick={handleSelect} className='title'>
+            <p>{movie.title} <br></br>
+            <img src={movie.poster} alt={movie.title} className="image1"/>
+            </p>
+            
         </div>
     )
 }
