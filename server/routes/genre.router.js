@@ -25,7 +25,7 @@ router.get('/details/:id', (req, res) => {
   const genresId = req.params.id;
   console.log('searchInput', genresId)
 
-  const queryText = `select array_agg("genres"."name") as "name" from "genres"
+  const queryText = `select "genres"."name" as "name" from "genres"
   join "movies_genres" on "genres"."id" = "movies_genres"."genre_id"
   join "movies" on "movies_genres"."movie_id" = "movies"."id"
   where "movies_genres"."movie_id" = $1;`;

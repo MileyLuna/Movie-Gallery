@@ -4,17 +4,27 @@
 }
 
 .container{
-    padding-left: 20px;
+    padding-left: 80px;
 }
 
 .detailContainer{
     display: flex;
-    justify-content: space-between;
+
+
 
 }
 
+.description{
+    height: 500px;
+    width: 800px;
+    padding-left: 60px;
+    padding-right: 60px; 
+    display: flex;
+    justify-content: center;
+}
+
 .backBtn{
-    background-color: #ea66ae; /* Green */
+    background-color: #ea66ae; 
     border: none;
     color: white;
     padding: 8px 26px;

@@ -22,16 +22,22 @@ function Details () {
         history.push('/');
     }
 
+
     return (
         <div className="container"> 
-                <h1>{movies[0].title}</h1>
-                <h3>Genre: {genres[0].name}</h3>
+                <h2>{movies[0].title}</h2>
+                <h3>Genre:</h3>
+                    {genres.map((genre, i) => {
+                        return (
+                        <h5 key={i}>{genre.name}</h5>
+                        );
+                    })}
         <div className="detailContainer">
             <div className="image">
                 <img src={movies[0].poster} className="image"/>
             </div>
 
-            <div>
+            <div className="description">
                 <h3>{movies[0].description}</h3>
             </div>
             </div>
