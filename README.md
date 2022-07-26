@@ -47,6 +47,13 @@ and
 
 our client side and server side will automatically spin back up when changes are made!
 
+
+
+### Screenshots
+
+![Home Page](wireframes/home_page.png)
+![Movie Detail Page](wireframes/Movie_detail.png)
+
 ## Built With
 
 - Visual Code
