@@ -46,13 +46,13 @@ function Details () {
                         </div>
                     )
                 })}
-                {/* <h3>Genre: {genres.name} </h3> */}
-                <h3>Genre:</h3>
+                <h3>Genre: {genres[0].genre} </h3>
+                {/* <h3>Genre:</h3>
                     {genres.map((genre, i) => {
                         return (
                         <h5 key={i}>{genre.name}</h5>
                         );
-                    })}
+                    })} */}
 
         {/* <div className="detailContainer">
             <div className="image">
