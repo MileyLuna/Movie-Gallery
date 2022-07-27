@@ -18,16 +18,18 @@ function MovieListItem({ movie }) {
         console.log('Select Btn clicked');
 
         //perform this action to grab selected movie information
-        // dispatch({ type: 'FETCH_DETAILS', payload: movie.id })
-        // dispatch({ type: 'FETCH_GENRE', payload: movie.id })
+
+        dispatch({ type: 'FETCH_DETAILS', payload: movie.id })
+        dispatch({ type: 'FETCH_GENRE', payload: movie.id })
+        
         //change current view to detail page upon click
         history.push(`/details/${movie.id}`)
     }
 
     return (
-        <div key={movie.id} onClick={handleSelect} className='title'>
+        <div key={movie.id}  className='title'>
             <p>{movie.title} <br></br>
-            <img src={movie.poster} alt={movie.title} className="image1"/>
+            <img src={movie.poster} alt={movie.title} onClick={handleSelect} className="image1"/>
             </p>
             
         </div>

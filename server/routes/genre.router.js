@@ -25,10 +25,15 @@ router.get('/details/:id', (req, res) => {
   const genresId = req.params.id;
   console.log('genre server is:', genresId)
 
-  const queryText = `select "genres"."name" as "name" from "genres"
+  // const queryText = `select array_to_string(array_agg("genres"."name"),',') from "genres"
+  // join "movies_genres" on "genres"."id" = "movies_genres"."genre_id"
+  // join "movies" on "movies_genres"."movie_id" = "movies"."id"
+  // where "movies_genres"."movie_id" = $1;`;
+  
+  const queryText = `select "genres"."name" from "genres"
   join "movies_genres" on "genres"."id" = "movies_genres"."genre_id"
   join "movies" on "movies_genres"."movie_id" = "movies"."id"
-  where "movies_genres"."movie_id" = $1;`;
+  where "movies"."id" = $1;`;
   
   pool
   .query (queryText, [genresId])
@@ -43,3 +48,5 @@ router.get('/details/:id', (req, res) => {
   });
 
   module.exports = router;
+
+

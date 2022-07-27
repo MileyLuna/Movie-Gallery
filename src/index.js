@@ -36,7 +36,7 @@ function* fetchSelectedMovie(action) {
     try {
         // console.log('fetchSelectedMovie plays:', action.payload);
         const selectedMovie = yield axios.get(`/api/movie/details/${action.payload}`);
-        // yield console.log('selected movie is:', selectedMovie.data);
+        yield console.log('selected movie is:', selectedMovie.data);
         yield put({ type: 'SET_MOVIES', payload: selectedMovie.data })
     }
     catch (error) {
@@ -50,7 +50,7 @@ function* fetchSelectedGenres(action) {
         
         // console.log('fetchSelectedGenres plays:', action.payload);
         const selectedGenres = yield axios.get(`/api/genre/details/${action.payload}`);
-        // yield console.log('selected genre is:', selectedGenres.data);
+        yield console.log('selected genre is:', selectedGenres.data);
         yield put({ type: 'SET_GENRES', payload: selectedGenres.data });
 
     }
