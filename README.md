@@ -4,21 +4,8 @@
 ## Description
 Duration: 10 hours
 
-Most codes and required imports were provided for us. What's left to do is:
+Most codes and required imports were provided for us. What's left to do is show all related details of selected/clicked movie in another view.
 
-### Home / List Page
-
-This view is completed already! It displays all of the movies in the movie database. 
-
-- TODO: When a movie poster is clicked, a user should be brought to the `/details` view for that movie.
-
-### Details Page
-
-This should show all details **including ALL genres** for the selected movie, including title, description, and the image, too! Use Sagas and Redux to handle these requests and data.
-
-- TODO: The details page should have a `Back to List` button, which should bring the user to the Home/List Page
-
-> Base functionality does not require the movie details to load correctly after refresh of the browser.
 
 ## Installation
 - HTML
@@ -26,6 +13,7 @@ This should show all details **including ALL genres** for the selected movie, in
 - jQuery
 - CSS
 - PostSQL/Postico
+- Visual Studio 
 
 1. `npm install`
 2. `npm run server`
@@ -54,9 +42,7 @@ our client side and server side will automatically spin back up when changes are
 ![Home Page](wireframes/home_page.png)
 ![Movie Detail Page](wireframes/Movie_detail.png)
 
-## Built With
 
-- Visual Code
 
 ## Acknowledgement
 
